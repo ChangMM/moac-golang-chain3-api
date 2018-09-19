@@ -69,7 +69,7 @@ func main() {
     }
     fmt.Println(version)
     ```
-    
+    ----------------
 #####  Golang Usage:
     // Send 1 MOAC （demo）
    ``` txid, err := client.MoacSendTransaction(moacrpc.T{
