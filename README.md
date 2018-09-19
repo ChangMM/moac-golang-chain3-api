@@ -68,7 +68,7 @@ func main() {
         log.Fatal(err)
     }
     fmt.Println(version)
-    ```
+    
     ----------------
 #####  Golang Usage:
     // Send 1 MOAC （demo）
