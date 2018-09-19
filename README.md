@@ -3,68 +3,51 @@
 [![Coverage Status](https://coveralls.io/repos/github/onrik/ethrpc/badge.svg?branch=master)](https://coveralls.io/github/onrik/ethrpc?branch=master)
 [![Go Report Card](https://goreportcard.com/badge/github.com/onrik/ethrpc)](https://goreportcard.com/report/github.com/onrik/ethrpc)
 [![GoDoc](https://godoc.org/github.com/onrik/ethrpc?status.svg)](https://godoc.org/github.com/onrik/ethrpc)
-[![Donate with Ethereum](https://en.cryptobadges.io/badge/micro/0xf4144308d6D67A1F00a61A596c0eB7B08411344a)](https://en.cryptobadges.io/donate/0xf4144308d6D67A1F00a61A596c0eB7B08411344a)
+
 
 Golang client for MOAC [Chain3 JSON RPC API](https://github.com/MOACChain/chain3).
 
-- [x] web3_clientVersion
-- [x] web3_sha3
+- [x] chain3_clientVersion
+- [x] chain3_sha3
 - [x] net_version
 - [x] net_peerCount
 - [x] net_listening
-- [x] eth_protocolVersion
-- [x] eth_syncing
-- [x] eth_coinbase
-- [x] eth_mining
-- [x] eth_hashrate
-- [x] eth_gasPrice
-- [x] eth_accounts
-- [x] eth_blockNumber
-- [x] eth_getBalance
-- [x] eth_getStorageAt
-- [x] eth_getTransactionCount
-- [x] eth_getBlockTransactionCountByHash
-- [x] eth_getBlockTransactionCountByNumber
-- [x] eth_getUncleCountByBlockHash
-- [x] eth_getUncleCountByBlockNumber
-- [x] eth_getCode
-- [x] eth_sign
-- [x] eth_sendTransaction
-- [x] eth_sendRawTransaction
-- [x] eth_call
-- [x] eth_estimateGas
-- [x] eth_getBlockByHash
-- [x] eth_getBlockByNumber
-- [x] eth_getTransactionByHash
-- [x] eth_getTransactionByBlockHashAndIndex
-- [x] eth_getTransactionByBlockNumberAndIndex
-- [x] eth_getTransactionReceipt
-- [ ] eth_getUncleByBlockHashAndIndex
-- [ ] eth_getUncleByBlockNumberAndIndex
-- [x] eth_getCompilers
-- [ ] eth_compileLLL
-- [ ] eth_compileSolidity
-- [ ] eth_compileSerpent
-- [x] eth_newFilter
-- [x] eth_newBlockFilter
-- [x] eth_newPendingTransactionFilter
-- [x] eth_uninstallFilter
-- [x] eth_getFilterChanges
-- [x] eth_getFilterLogs
-- [x] eth_getLogs
-- [ ] eth_getWork
-- [ ] eth_submitWork
-- [ ] eth_submitHashrate
-- [ ] shh_post
-- [ ] shh_version
-- [ ] shh_newIdentity
-- [ ] shh_hasIdentity
-- [ ] shh_newGroup
-- [ ] shh_addToGroup
-- [ ] shh_newFilter
-- [ ] shh_uninstallFilter
-- [ ] shh_getFilterChanges
-- [ ] shh_getMessages
+- [x] mc_protocolVersion
+- [x] mc_syncing
+- [x] mc_coinbase
+- [x] mc_mining
+- [x] mc_hashrate
+- [x] mc_gasPrice
+- [x] mc_accounts
+- [x] mc_blockNumber
+- [x] mc_getBalance
+- [x] mc_getStorageAt
+- [x] mc_getTransactionCount
+- [x] mc_getBlockTransactionCountByHash
+- [x] mc_getBlockTransactionCountByNumber
+- [x] mc_getUncleCountByBlockHash
+- [x] mc_getUncleCountByBlockNumber
+- [x] mc_getCode
+- [x] mc_sign
+- [x] mc_sendTransaction
+- [x] mc_sendRawTransaction
+- [x] mc_call
+- [x] mc_estimateGas
+- [x] mc_getBlockByHash
+- [x] mc_getBlockByNumber
+- [x] mc_getTransactionByHash
+- [x] mc_getTransactionByBlockHashAndIndex
+- [x] mc_getTransactionByBlockNumberAndIndex
+- [x] mc_getTransactionReceipt
+- [x] mc_getCompilers
+- [x] mc_newFilter
+- [x] mc_newBlockFilter
+- [x] mc_newPendingTransactionFilter
+- [x] mc_uninstallFilter
+- [x] mc_getFilterChanges
+- [x] mc_getFilterLogs
+- [x] mc_getLogs
+
 
 ##### Usage:
 ```go
@@ -74,23 +57,24 @@ import (
     "fmt"
     "log"
 
-    "github.com/onrik/ethrpc"
+    "github.com/dacelee/moac-golang-chain3-api"
 )
 
 func main() {
-    client := ethrpc.New("http://127.0.0.1:8545")
+    client := moacrpc.New("http://127.0.0.1:8545")
 
-    version, err := client.Web3ClientVersion()
+    version, err := client.Chain3ClientVersion()
     if err != nil {
         log.Fatal(err)
     }
     fmt.Println(version)
-
-    // Send 1 eth
-    txid, err := client.EthSendTransaction(ethrpc.T{
+    ```
+##### GOlang Usage:
+    // Send 1 MOAC （demo）
+   ``` txid, err := client.MoacSendTransaction(moacrpc.T{
         From:  "0x6247cf0412c6462da2a51d05139e2a3c6c630f0a",
         To:    "0xcfa202c4268749fbb5136f2b68f7402984ed444b",
-        Value: ethrpc.Eth1(),
+        Value: moacrpc.Moac1(),
     })
     if err != nil {
         log.Fatal(err)
