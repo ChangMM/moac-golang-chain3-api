@@ -44,9 +44,7 @@ Golang client for MOAC [Chain3 JSON RPC API](https://github.com/MOACChain/chain3
 - [x] mc_newBlockFilter
 - [x] mc_newPendingTransactionFilter
 - [x] mc_uninstallFilter
-- [x] mc_getFilterChanges
-- [x] mc_getFilterLogs
-- [x] mc_getLogs
+
 
 
 ##### Usage:
